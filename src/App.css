@@ -26,10 +26,6 @@
   border-radius: 6px;
 }
 
-.paragraph {
-  width: 250px;
-}
-
 .slideBtn {
   align-items: center;
   justify-content: space-around;
@@ -109,5 +105,9 @@
 @media screen and (max-width: 480px) {
   .App {
     width: 300px;
+  }
+
+  .paragraph {
+    width: 150px;
   }
 }
