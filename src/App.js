@@ -1,3 +1,4 @@
+import dataslide from "./dataslide";
 import logo from "./pic-glry/btc5.jpg";
 import image from "./pic-glry/btc3.jpg";
 import image2 from "./pic-glry/btc1.jpg";
@@ -43,39 +44,66 @@ import img0008 from "./pic-glry/btc-stacks.jpeg";
 import img0009 from "./pic-glry/btc-golden.jpeg";
 import "./App.css";
 import { useState } from "react";
-import photos from "./photos";
+// import photos from "./photos";
 
 // import { Helmet } from "react-helmet";
 
 // const TITLE = "BTC Gallery";
 
-function PhotoIndex() {
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-  const photos = [<img src={img0001} className="App-img4" alt="img4" />];
-}
+function Slide(props) {
+  const [index, setIndex] = useState(0);
 
-function App() {
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-  // const photos = [
-  //   "/pic-glry/btc5.jpg",
-  //   "/pic-glry/btc-golden.jpeg",
-  //   "/pic-glry/btc-stacks.jpeg",
-  //   '<img src={img0001} className="App-img4" alt="img4" />',
-  //   '<img src={img0002} className="App-img4" alt="img4" />',
-  //   '<img src={img0003} className="App-img4" alt="img4" />',
-  // ];
+  let currentIndex = dataslide[index];
 
-  const handlePrevClick = () => {
-    if (currentPhotoIndex > 0) {
-      setCurrentPhotoIndex(currentPhotoIndex - 1);
-    }
-  };
+  const dataResult = (
+    <div className="slide">
+      <div>
+        <img src={currentIndex.img} className="slideImg" alt="" />
+      </div>
+      <div className="s-info">
+        <h4 className="title">{currentIndex.description}</h4>
+      </div>
+    </div>
+  );
 
-  const handleNextClick = () => {
-    if (currentPhotoIndex < photos.length - 1) {
-      setCurrentPhotoIndex(currentPhotoIndex + 1);
-    }
-  };
+  // function handlePrevClick() {
+  //   if (currentIndex > 0) {
+  //     setIndex(currentIndex - 1);
+  //   }
+  // }
+
+  // function handleNextClick() {
+  //   if ((currentIndex < dataslide.length - 1)) {
+  //     setIndex(currentIndex + 1);
+  //   }
+  // }
+
+  // function handlePrevClick() {
+  //   setIndex((prev) => {
+  //     if (prev === 0) {
+  //       return 5; // = 5
+  //     }
+  //     return prev - 1;
+  //   });
+  // }
+
+  // function handleNextClick() {
+  //   setIndex((prev) => {
+  //     if (prev === 5) {
+  //       // === 5
+  //       return 0;
+  //     }
+  //     return prev + 1;
+  //   });
+  // }
+
+  function handlePrevClick() {
+    setIndex((prev) => (prev === 0 ? dataslide.length - 1 : prev - 1));
+  }
+
+  function handleNextClick() {
+    setIndex((prev) => (prev === dataslide.length - 1 ? 0 : prev + 1));
+  }
 
   return (
     <div className="App">
@@ -90,20 +118,25 @@ function App() {
         </h2>
       </header>
       <body>
-        <button onClick={handlePrevClick}>Previous</button>
         <img src={logo} className="App-logo" alt="logo" />
-        <button onClick={handleNextClick}>Next</button>
+
         <p className="paragraph">
           BTC is digital gold, gold transited power to fiat money, which made
           money centralized, but gold is decentralized, so BTC is decentralized,
           the future money is decentralized, this is why BTC is the future.
         </p>
 
-        {/* <div>
-          <button onClick={handlePrevClick}>Previous</button>
-          <img src={photos[currentPhotoIndex]} alt="Currentphoto" />
-          <button onClick={handleNextClick}>Next</button>
-        </div> */}
+        <div className="slideContainer">
+          {dataResult}
+          <div className="slideBtn">
+            <button className="actBtn" onClick={handlePrevClick}>
+              Prev
+            </button>
+            <button className="actBtn" onClick={handleNextClick}>
+              Next
+            </button>
+          </div>
+        </div>
 
         <img src={img0001} className="App-img4" alt="img4" />
 
@@ -151,7 +184,9 @@ function App() {
 
         <img src={image124} className="App-img4" alt="img4" />
 
-        <p className="paragraph">Bitcoin U+20BF for the kids</p>
+        <p className="paragraph">
+          Gold is Physical, Fiat is political, Bitcoin is Mathematical
+        </p>
 
         <img src={image5} className="App-img4" alt="img4" />
 
@@ -191,7 +226,7 @@ function App() {
 
         <img src={image14} className="App-img4" alt="img4" />
 
-        <p className="paragraph">Bitcoin to a Future Bright</p>
+        <p className="paragraph">Bitcoin to a Bright Future</p>
 
         <img src={image15} className="App-img4" alt="img4" />
 
@@ -227,39 +262,39 @@ function App() {
 
         <img src={image23} className="App-img4" alt="img4" />
 
-        <p className="paragraph">Grab a bag today</p>
+        <p className="paragraph">Bitcoin is everywhere</p>
 
         <img src={image24} className="App-img4" alt="img4" />
 
-        <p className="paragraph">Grab a bag today</p>
+        <p className="paragraph">Bitcoin makes you Stronger</p>
 
         <img src={image25} className="App-img4" alt="img4" />
 
-        <p className="paragraph">Grab a bag today</p>
+        <p className="paragraph">All aboard the Bitcoin train</p>
 
         <img src={image26} className="App-img4" alt="img4" />
 
-        <p className="paragraph">Grab a bag today</p>
+        <p className="paragraph">Bitcoin is Opportunity</p>
 
         <img src={image27} className="App-img4" alt="img4" />
 
-        <p className="paragraph">Grab a bag today</p>
+        <p className="paragraph">Bitcoin is Immortal</p>
 
         <img src={image28} className="App-img4" alt="img4" />
 
-        <p className="paragraph">Grab a bag today</p>
+        <p className="paragraph">Bitcoin is Art</p>
 
         <img src={image29} className="App-img4" alt="img4" />
 
-        <p className="paragraph">Grab a bag today</p>
+        <p className="paragraph">Bitcoin is the Orange Queen</p>
 
         <img src={image30} className="App-img4" alt="img4" />
 
-        <p className="paragraph">Grab a bag today</p>
+        <p className="paragraph">Bitcoin is Transcedent</p>
 
         <img src={image31} className="App-img4" alt="img4" />
 
-        <p className="paragraph">Grab a bag today</p>
+        <p className="paragraph">Wake up and Bitcoin</p>
 
         <img src={image4} className="App-img4" alt="img4" />
 
@@ -288,4 +323,4 @@ function App() {
   );
 }
 
-export default App;
+export default Slide;
